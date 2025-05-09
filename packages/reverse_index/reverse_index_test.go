@@ -1,10 +1,10 @@
 package reverse_index
 
 import (
-	"reflect"
 	"testing"
 
 	"github.com/nivekithan/text-search/packages/tokeniser"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestReverseIndex(t *testing.T) {
@@ -20,13 +20,13 @@ func TestReverseIndex(t *testing.T) {
 	}{
 		"simple search": {
 			documents: []string{
-				"I am nivekithan",          // 0
-				"Hey there",                // 1
-				"How are you",              // 2
-				"Where are you from ",      // 3
-				"from which place are you", // 4
-				"which food you like",      // 5
-				"hello world",              // 6
+				"I am nivekithan",               // 0
+				"Hey there",                     // 1
+				"How are you",                   // 2
+				"Where are you from ",           // 3
+				"from which place are you from", // 4
+				"which food you like",           // 5
+				"hello world",                   // 6
 			},
 			queries: []struct {
 				query    string
@@ -61,9 +61,7 @@ func TestReverseIndex(t *testing.T) {
 
 					actual := reverseIndex.SearchToken(token)
 
-					if !reflect.DeepEqual(actual, query.expected) {
-						t.Errorf("expected %v, got %v", query.expected, actual)
-					}
+					assert.ElementsMatch(t, actual, query.expected)
 				})
 			}
 		})
