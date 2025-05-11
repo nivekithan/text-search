@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestPrefixSearch(t *testing.T) {
+func TestTrie(t *testing.T) {
 	trie := NewTrie('0')
 
 	testcases := map[string]struct {
