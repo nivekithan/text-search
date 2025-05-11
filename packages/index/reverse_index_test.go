@@ -1,4 +1,4 @@
-package reverse_index
+package index
 
 import (
 	"testing"
@@ -7,9 +7,9 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestReverseIndex(t *testing.T) {
+func TestIndex(t *testing.T) {
 	tokeniser := tokeniser.NewEnglishTokeniser()
-	reverseIndex := NewReverseIndex(tokeniser)
+	reverseIndex := NewIndex(tokeniser)
 
 	testCases := map[string]struct {
 		documents []string
